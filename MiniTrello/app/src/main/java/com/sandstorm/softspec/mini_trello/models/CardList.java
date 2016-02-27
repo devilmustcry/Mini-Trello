@@ -27,4 +27,6 @@ public class CardList {
     public List<Card> loadList(){
         return cards;
     }
+
+
 }

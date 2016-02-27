@@ -3,9 +3,9 @@ package com.sandstorm.softspec.mini_trello.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<CardList> lists;
+    private List<CardList> cardLists;
     private ListView cardListView;
     private CardListAdapter cardListAdapter;
 
@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initComponents() {
 
-        lists = new ArrayList<CardList>();
-        cardListAdapter = new CardListAdapter(this, R.layout.list_cell, lists);
+        cardLists = new ArrayList<CardList>();
+        cardListAdapter = new CardListAdapter(this, R.layout.list_cell, cardLists);
         cardListView = (ListView) findViewById(R.id.main_list_view);
         cardListView.setAdapter(cardListAdapter);
 
@@ -59,10 +59,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        lists.clear();
+        cardLists.clear();
 
         for(CardList cardList : Storage.getInstance().loadList()) {
-            lists.add(cardList);
+
+            cardLists.add(cardList);
         }
 
         cardListAdapter.notifyDataSetChanged();
