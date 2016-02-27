@@ -9,8 +9,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.sandstorm.softspec.mini_trello.R;
+import com.sandstorm.softspec.mini_trello.models.CardList;
+import com.sandstorm.softspec.mini_trello.models.Storage;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    List<CardList> lists;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +30,23 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(MainActivity.this, ListActivity.class);
+                Intent intent = new Intent(MainActivity.this, NewListActivity.class);
                 startActivity(intent);
             }
         });
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        lists.clear();
+
+        for(CardList cardList : Storage.getInstance().loadList()) {
+            lists.add(cardList);
+        }
+
+
+
     }
 
 }

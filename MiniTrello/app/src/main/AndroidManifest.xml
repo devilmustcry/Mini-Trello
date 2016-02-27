@@ -16,7 +16,8 @@
             android:name=".activities.ListActivity"
             android:label="@string/title_activity_list"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.CardActivity"></activity>
+        <activity android:name=".activities.CardActivity" />
+        <activity android:name=".activities.NewListActivity"></activity>
     </application>
 
 </manifest>

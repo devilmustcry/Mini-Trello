@@ -27,6 +27,10 @@ public class Storage {
         mainList.add(cardList);
     }
 
+    public List <CardList> loadList() {
+        return mainList;
+    }
+
     public void clearMainList(){
         mainList.clear();
     }
