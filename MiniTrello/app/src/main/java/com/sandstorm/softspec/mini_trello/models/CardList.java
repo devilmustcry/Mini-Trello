@@ -23,4 +23,8 @@ public class CardList {
     public void addCard(Card newCard){
         this.cards.add(newCard);
     }
+
+    public List<Card> loadList(){
+        return cards;
+    }
 }
