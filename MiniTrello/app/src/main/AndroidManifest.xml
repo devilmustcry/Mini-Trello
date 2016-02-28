@@ -18,6 +18,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.CardActivity" />
         <activity android:name=".activities.NewListActivity" />
+        <activity android:name=".activities.NewCardActivity"></activity>
     </application>
 
 </manifest>

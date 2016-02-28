@@ -7,46 +7,55 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.sandstorm.softspec.mini_trello.R;
-import com.sandstorm.softspec.mini_trello.models.CardList;
+import com.sandstorm.softspec.mini_trello.models.Card;
 import com.sandstorm.softspec.mini_trello.models.Storage;
 
-public class NewListActivity extends AppCompatActivity {
+public class NewCardActivity extends AppCompatActivity {
 
     private EditText title;
+    private EditText description;
     private Button saveButton;
     private Button cancelButton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_list);
-        initcomponents();
+        setContentView(R.layout.activity_new_card);
+
+        initComponents();
     }
 
-    private void initcomponents() {
-        title = (EditText) findViewById(R.id.new_list_title_edit);
-        saveButton = (Button) findViewById(R.id.save_list_button);
-        cancelButton = (Button) findViewById(R.id.cancel_list_button);
-        System.out.println(title.getText().toString());
+    private void initComponents() {
+        title = (EditText) findViewById(R.id.new_card_title_edit);
+
+        description = (EditText) findViewById(R.id.new_card_description);
+
+
+        saveButton = (Button) findViewById(R.id.save_card_button);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveNewList();
+                setSaveButton();
                 finish();
             }
         });
 
+
+        cancelButton = (Button) findViewById(R.id.cancel_card_button);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              finish();
+                finish();
             }
         });
 
+
     }
 
-    private void saveNewList() {
-        Storage.getInstance().addList(new CardList(title.getText().toString()));
+    private void setSaveButton() {
+     //   Card newCard = new Card(title.getText().toString(),description.getText().toString());
     }
+
 
 }
