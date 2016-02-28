@@ -10,23 +10,23 @@
     tools:context="com.sandstorm.softspec.mini_trello.activities.NewListActivity">
 
     <TextView
-        android:id="@+id/title_text"
+        android:id="@+id/new_title_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Title"
         android:textSize="10pt"/>
     <EditText
-        android:id="@+id/title_edit"
+        android:id="@+id/new_title_edit"
         android:hint="Input Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title_text"/>
+        android:layout_below="@+id/new_title_text"/>
     <Button
         android:id="@+id/save_list_button"
         android:text="Save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title_edit"
+        android:layout_below="@+id/new_title_edit"
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

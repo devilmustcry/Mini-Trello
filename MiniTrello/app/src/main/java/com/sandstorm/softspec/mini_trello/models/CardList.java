@@ -28,4 +28,6 @@ public class CardList implements Serializable {
     public List<Card> loadList(){
         return cards;
     }
+
+
 }

@@ -38,8 +38,6 @@ public class CardListAdapter extends ArrayAdapter<CardList> {
         CardList lists = getItem(position);
         title.setText(lists.getListTitle());
 
-        CardList list = getItem(position);
-
         return v;
     }
 

@@ -17,8 +17,7 @@ public class Storage {
 
     public static Storage getInstance(){
         if(instance == null){
-//            System.out.println("Hellloooooooooooooooooooooooooooo");
-
+            
             instance = new Storage();
         }
 
