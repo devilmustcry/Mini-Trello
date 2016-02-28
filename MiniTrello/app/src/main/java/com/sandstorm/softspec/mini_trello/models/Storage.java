@@ -17,7 +17,9 @@ public class Storage {
 
     public static Storage getInstance(){
         if(instance == null){
-            return new Storage();
+//            System.out.println("Hellloooooooooooooooooooooooooooo");
+
+            instance = new Storage();
         }
 
         return instance;
@@ -25,9 +27,10 @@ public class Storage {
 
     public void addList(CardList cardList){
         mainList.add(cardList);
+        System.out.println("Name : " + mainList.get(0).getListTitle());
     }
 
-    public List <CardList> loadList() {
+    public List<CardList> loadList() {
         return mainList;
     }
 

@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private List<CardList> lists;
     private ListView cardListView;
     private CardListAdapter cardListAdapter;
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +59,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
         lists.clear();
-
+        count++;
         for(CardList cardList : Storage.getInstance().loadList()) {
             lists.add(cardList);
         }
-
         cardListAdapter.notifyDataSetChanged();
 
     }

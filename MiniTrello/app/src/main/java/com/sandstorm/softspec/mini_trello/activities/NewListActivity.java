@@ -26,10 +26,12 @@ public class NewListActivity extends AppCompatActivity {
     private void initcomponents() {
         title = (EditText) findViewById(R.id.title_edit);
         saveButton = (Button) findViewById(R.id.save_list_button);
+        System.out.println(title.getText().toString());
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Storage.getInstance().addList(new CardList(title.getText().toString()));
+                System.out.println("Size in newListActivity : " + Storage.getInstance().loadList().size());
                 finish();
             }
         });
