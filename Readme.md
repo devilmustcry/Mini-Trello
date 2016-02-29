@@ -5,7 +5,7 @@ This project is for subject Software Specification & Design (01219243).
 Member
   - Kasidit Phoncharoen 5710546151
   - Arut
-  - Kuy
+  - Zen
  
 # Iteration 1
 
@@ -51,9 +51,9 @@ Main Success Scenario
 * The application save the card into the list
 * The application direct user back to list page
 
-![alt text](http://www.mx7.com/i/dce/GPNjU5.png)
-![alt text](http://www.mx7.com/i/50e/NnNdGi.png)
-![alt text](http://www.mx7.com/i/ef9/vkyKVe.png)
+![alt text](http://www.mx7.com/i/dce/GPNjU5.png)  
+![alt text](http://www.mx7.com/i/50e/NnNdGi.png)  
+![alt text](http://www.mx7.com/i/ef9/vkyKVe.png)  
 
 
  
