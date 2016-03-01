@@ -54,7 +54,9 @@ public class NewCardActivity extends AppCompatActivity {
     }
 
     private void setSaveButton() {
-     //   Card newCard = new Card(title.getText().toString(),description.getText().toString());
+        Card newCard = new Card(title.getText().toString(),description.getText().toString());
+
+        
     }
 
 

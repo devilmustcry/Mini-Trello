@@ -9,7 +9,9 @@ import java.util.List;
 public class Storage {
 
     private static Storage instance;
-    private List<CardList> mainList;
+    private static List<CardList> mainList;
+
+
 
     private Storage(){
         mainList = new ArrayList<CardList>();
@@ -26,16 +28,29 @@ public class Storage {
 
     public void addList(CardList cardList){
         mainList.add(cardList);
-        System.out.println("Name : " + mainList.get(0).getListTitle());
+//        System.out.println("Name : " + mainList.get(0).getListTitle());
     }
 
     public List<CardList> loadList() {
+
         return mainList;
     }
 
     public void clearMainList(){
         mainList.clear();
     }
+
+    public CardList findList(CardList other) {
+
+        for(CardList list : mainList) {
+            if(list.equals(other)) {
+                return list;
+            }
+        }
+        return null;
+    }
+
+
 
 
 }

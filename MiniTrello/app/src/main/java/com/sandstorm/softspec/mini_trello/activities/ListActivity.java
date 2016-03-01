@@ -11,9 +11,11 @@ import android.widget.TextView;
 
 import com.sandstorm.softspec.mini_trello.R;
 import com.sandstorm.softspec.mini_trello.models.CardList;
+import com.sandstorm.softspec.mini_trello.models.Storage;
 
 public class ListActivity extends AppCompatActivity {
 
+    CardList dummyList;
     CardList cardList;
     TextView listTitle;
 
@@ -31,7 +33,10 @@ public class ListActivity extends AppCompatActivity {
 
     private void initComponents() {
 
-        cardList = (CardList) getIntent().getSerializableExtra("cardLists");
+        dummyList = (CardList) getIntent().getSerializableExtra("cardLists");
+
+        cardList = Storage.getInstance().findList(dummyList);
+
         listTitle = (TextView) findViewById(R.id.list_title);
 
         listTitle.setText(cardList.getListTitle());

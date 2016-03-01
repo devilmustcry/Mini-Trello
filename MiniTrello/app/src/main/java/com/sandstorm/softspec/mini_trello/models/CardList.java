@@ -7,13 +7,17 @@ import java.util.List;
  * Created by Zen on 2/27/16.
  */
 public class CardList implements Serializable {
-    private List<Card> cards;
+    private static List<Card> cards;
     private String list_title;
+    private static long id = 1;
 
 
     public CardList(String title){
+
+        System.out.println(id);
         this.list_title = title;
         cards = new ArrayList<Card>();
+        id++;
 
     }
 
@@ -29,5 +33,23 @@ public class CardList implements Serializable {
         return cards;
     }
 
+    public static long getId() {
+        return id;
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        CardList cardList = (CardList) o;
+
+        return this.id == cardList.getId();
+
+    }
+
+    @Override
+    public int hashCode() {
+        return list_title != null ? list_title.hashCode() : 0;
+    }
 }
