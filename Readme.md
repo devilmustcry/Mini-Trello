@@ -26,9 +26,6 @@ Main Success Scenario
 * The application save the list into storage
 * The application direct the user
 
-### Domain Model V 0.1  
-![alt text](http://www.mx7.com/i/c2d/OW4Z56.png)  
-
 ### Iteration 1: use case 2  
 Use case: Create a card  
 Version: 0.1  
@@ -56,6 +53,9 @@ Main Success Scenario
 * User confirm saving card
 * The application save the card into the list
 * The application direct user back to list page
+
+### Domain Model V 0.1  
+![alt text](http://www.mx7.com/i/c2d/OW4Z56.png)  
 
 ### Iteration1 : SSD1   
 Create new list  
