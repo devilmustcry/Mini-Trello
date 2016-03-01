@@ -17,7 +17,7 @@ public class Storage {
 
     public static Storage getInstance(){
         if(instance == null){
-            
+
             instance = new Storage();
         }
 
