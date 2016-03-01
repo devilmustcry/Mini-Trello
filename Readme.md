@@ -40,7 +40,7 @@ Main Success Scenario
 * The application save the card into the list
 * The application direct user back to list page
 
-### Iteration 1: use case 2
+### Iteration 1: use case 3
 Use case: Create a card  
 Version: 0.1  
 Primary Actor: User  
@@ -54,8 +54,14 @@ Main Success Scenario
 * The application save the card into the list
 * The application direct user back to list page
 
+### Iteration1 : SSD1   
+Create new list  
 ![alt text](http://www.mx7.com/i/dce/GPNjU5.png)  
+### Iteration1 : SSD2   
+Create a card  
 ![alt text](http://www.mx7.com/i/50e/NnNdGi.png)  
+### Iteration1 : SSD3   
+View individual card  
 ![alt text](http://www.mx7.com/i/ef9/vkyKVe.png)  
 
 
