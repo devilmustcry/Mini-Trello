@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private void initComponents() {
 
         cardLists = new ArrayList<CardList>();
-        cardListAdapter = new CardListAdapter(this, R.layout.list_cell, cardLists);
+        cardListAdapter = new CardListAdapter(this, R.layout.cell, cardLists);
         cardListView = (ListView) findViewById(R.id.main_list_view);
         cardListView.setAdapter(cardListAdapter);
 

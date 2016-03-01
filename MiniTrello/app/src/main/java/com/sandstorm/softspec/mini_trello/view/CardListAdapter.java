@@ -10,8 +10,6 @@ import android.widget.TextView;
 import com.sandstorm.softspec.mini_trello.R;
 import com.sandstorm.softspec.mini_trello.models.CardList;
 
-import org.w3c.dom.Text;
-
 import java.util.List;
 
 /**
@@ -31,7 +29,7 @@ public class CardListAdapter extends ArrayAdapter<CardList> {
 
         if(v == null) {
             LayoutInflater vi = LayoutInflater.from(getContext());
-            v = vi.inflate(R.layout.list_cell, null);
+            v = vi.inflate(R.layout.cell, null);
         }
 
         TextView title = (TextView) v.findViewById(R.id.title_text);

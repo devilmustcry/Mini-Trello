@@ -25,6 +25,10 @@ public class CardList implements Serializable {
         return this.list_title;
     }
 
+    public List<Card> getList() {
+        return cards;
+    }
+
     public void addCard(Card newCard){
         this.cards.add(newCard);
     }
@@ -35,6 +39,10 @@ public class CardList implements Serializable {
 
     public static long getId() {
         return id;
+    }
+
+    public void clear() {
+        cards.clear();
     }
 
     @Override

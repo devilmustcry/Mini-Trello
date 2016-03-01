@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import com.sandstorm.softspec.mini_trello.R;
 import com.sandstorm.softspec.mini_trello.models.Card;
+import com.sandstorm.softspec.mini_trello.models.CardList;
 import com.sandstorm.softspec.mini_trello.models.Storage;
 
 public class NewCardActivity extends AppCompatActivity {
@@ -16,6 +17,9 @@ public class NewCardActivity extends AppCompatActivity {
     private EditText description;
     private Button saveButton;
     private Button cancelButton;
+
+    private CardList dummyList;
+    private CardList parentList;
 
 
     @Override
@@ -27,6 +31,10 @@ public class NewCardActivity extends AppCompatActivity {
     }
 
     private void initComponents() {
+
+        dummyList = (CardList) getIntent().getSerializableExtra("cardList");
+        parentList = Storage.getInstance().findList(dummyList);
+
         title = (EditText) findViewById(R.id.new_card_title_edit);
 
         description = (EditText) findViewById(R.id.new_card_description);
@@ -55,8 +63,7 @@ public class NewCardActivity extends AppCompatActivity {
 
     private void setSaveButton() {
         Card newCard = new Card(title.getText().toString(),description.getText().toString());
-
-        
+        parentList.addCard(newCard);
     }
 
 
