@@ -45,6 +45,15 @@ public class CardList implements Serializable {
         cards.clear();
     }
 
+    public Card findCard(Card other) {
+
+        for(Card card : cards) {
+            if(card.equals(other))
+                return card;
+        }
+        return null;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

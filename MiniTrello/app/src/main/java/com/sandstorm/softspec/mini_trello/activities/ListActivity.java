@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -70,6 +71,16 @@ public class ListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+       cardListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               Intent intent = new Intent(ListActivity.this, CardActivity.class);
+               intent.putExtra("card", cards.get(position));
+               intent.putExtra("cardList", dummyList);
+               startActivity(intent);
+           }
+       });
 
 
 
