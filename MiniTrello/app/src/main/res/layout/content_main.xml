@@ -12,11 +12,17 @@
     tools:context="com.sandstorm.softspec.mini_trello.activities.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <ListView
-        android:id="@+id/main_list_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+    <!--<ListView-->
+        <!--android:id="@+id/main_list_view"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"></ListView>-->
 
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_main">
+
+    </android.support.v7.widget.RecyclerView>
 
 
 </RelativeLayout>

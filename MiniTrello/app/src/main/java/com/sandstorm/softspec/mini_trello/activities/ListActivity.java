@@ -26,7 +26,7 @@ public class ListActivity extends AppCompatActivity {
     private List<Card> cards;
     private CardAdapter cardAdapter;
     private ListView cardListView;
-    private CardList dummyList;
+//    private CardList dummyList;
     private CardList cardList;
     TextView listTitle;
 
@@ -53,9 +53,9 @@ public class ListActivity extends AppCompatActivity {
 
         cardListView.setAdapter(cardAdapter);
 
-        dummyList = (CardList) getIntent().getSerializableExtra("cardLists");
+//        dummyList = (CardList) getIntent().getSerializableExtra("cardLists");
 
-        cardList = Storage.getInstance().findList(dummyList);
+        cardList = Storage.getInstance().loadList().get((int) getIntent().getSerializableExtra("index"));
 
         listTitle = (TextView) findViewById(R.id.list_title);
 
@@ -67,7 +67,7 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ListActivity.this, NewCardActivity.class);
-                intent.putExtra("cardList", dummyList);
+                intent.putExtra("cardList", cardList);
                 startActivity(intent);
             }
         });
@@ -77,7 +77,7 @@ public class ListActivity extends AppCompatActivity {
            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                Intent intent = new Intent(ListActivity.this, CardActivity.class);
                intent.putExtra("card", cards.get(position));
-               intent.putExtra("cardList", dummyList);
+               intent.putExtra("cardList", cardList);
                startActivity(intent);
            }
        });
@@ -93,7 +93,7 @@ public class ListActivity extends AppCompatActivity {
 
         cards.clear();
 
-        for(Card card :  Storage.getInstance().findList(dummyList).getList()) {
+        for(Card card :  Storage.getInstance().loadList().get((int) getIntent().getSerializableExtra("index")).getList()) {
 
             cards.add(card);
         }
