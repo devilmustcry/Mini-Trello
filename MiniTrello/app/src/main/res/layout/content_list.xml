@@ -12,10 +12,14 @@
     tools:context="com.sandstorm.softspec.mini_trello.activities.ListActivity"
     tools:showIn="@layout/activity_list">
 
-    <ListView
-        android:id="@+id/card_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></ListView>
+    <!--<ListView-->
+        <!--android:id="@+id/card_list"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"></ListView>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_list"></RelativeLayout>
 
 
 
