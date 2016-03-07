@@ -47,7 +47,7 @@ public class ListActivity extends AppCompatActivity {
 
         cards = new ArrayList<Card>();
 
-        cardListView = (ListView) findViewById(R.id.card_list);
+        cardListView = (ListView) findViewById(R.id.rv_list);
 
         cardAdapter = new CardAdapter(this, R.layout.cell, cards);
 
