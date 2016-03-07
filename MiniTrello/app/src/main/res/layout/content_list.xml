@@ -19,7 +19,11 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:id="@+id/rv_list">
+=======
+        android:id="@+id/rv_list"></android.support.v7.widget.RecyclerView>
+>>>>>>> origin/master
 
     </android.support.v7.widget.RecyclerView>
 

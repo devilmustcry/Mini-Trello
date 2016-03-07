@@ -1,6 +1,9 @@
 package com.sandstorm.softspec.mini_trello.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Zen on 2/27/16.
@@ -10,11 +13,17 @@ public class Card implements Serializable {
     private String title;
     private String description;
     private static long id = 1;
+    private Date date;
+    private final String currentCreatedTime;
+    private List<Comment> commentList;
 
 
     public Card(String title , String description){
         this.title = title;
         this.description = description;
+        date = new Date();
+        currentCreatedTime = date.toLocaleString();
+        commentList = new ArrayList<Comment>();
         id++;
 
     }
@@ -41,6 +50,19 @@ public class Card implements Serializable {
 
     public static long getId() {
         return id;
+    }
+
+    public String getCreatedTime(){
+        return currentCreatedTime;
+
+    }
+
+    public List<Comment> getCommentList(){
+        return commentList;
+    }
+
+    public void addComment(String message){
+        commentList.add(new Comment(message));
     }
 
     @Override
