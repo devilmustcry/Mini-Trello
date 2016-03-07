@@ -34,7 +34,8 @@ public class CardActivity extends AppCompatActivity {
 //        dummyList = (CardList) getIntent().getSerializableExtra("cardList");
 
 //        dummyCard = (Card) getIntent().getSerializableExtra("card");
-        card = Storage.getInstance().loadList().get((int) getIntent().getSerializableExtra("cardListIndex")).loadList().get((int) getIntent().getSerializableExtra("cardIndex"));
+        card = Storage.getInstance().loadList().get((int) getIntent()
+                .getSerializableExtra("cardListIndex")).loadList().get((int) getIntent().getSerializableExtra("cardIndex"));
 
         title.setText(card.getTitle());
         description.setText(card.getDescription());

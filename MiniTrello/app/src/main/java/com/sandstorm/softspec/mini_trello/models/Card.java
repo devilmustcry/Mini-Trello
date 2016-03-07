@@ -2,6 +2,7 @@ package com.sandstorm.softspec.mini_trello.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -36,17 +37,7 @@ public class Card implements Serializable {
         return this.description;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Card card = (Card) o;
-
-        return id == card.getId();
-
-
-    }
 
     public static long getId() {
         return id;
@@ -58,6 +49,7 @@ public class Card implements Serializable {
     }
 
     public List<Comment> getCommentList(){
+        Collections.sort(commentList, new Comment.createdTimeComparator());
         return commentList;
     }
 
@@ -71,4 +63,17 @@ public class Card implements Serializable {
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Card card = (Card) o;
+
+        return id == card.getId();
+
+
+    }
+
 }

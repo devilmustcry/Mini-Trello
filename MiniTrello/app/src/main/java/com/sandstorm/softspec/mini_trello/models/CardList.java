@@ -54,6 +54,17 @@ public class CardList implements Serializable {
         return null;
     }
 
+    public void deleteCard(Card other){
+        int index = 0;
+        for(Card card : cards){
+            if(card.equals(other)){
+                break;
+            }
+            index++;
+        }
+        cards.remove(index);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

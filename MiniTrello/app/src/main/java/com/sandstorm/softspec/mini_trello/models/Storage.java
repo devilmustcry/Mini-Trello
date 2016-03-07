@@ -28,7 +28,7 @@ public class Storage {
 
     public void addList(CardList cardList){
         mainList.add(cardList);
-//        System.out.println("Name : " + mainList.get(0).getListTitle());
+
     }
 
     public List<CardList> loadList() {
