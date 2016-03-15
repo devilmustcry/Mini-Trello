@@ -25,11 +25,13 @@
         android:textSize="11pt"
         android:text="It's me"
         android:layout_below="@id/card_title"/>
-    <android.support.v7.widget.RecyclerView
+    <ListView
+        android:id="@+id/comment_list_view"
+        android:layout_marginTop="10pt"
         android:layout_below="@+id/card_description"
         android:layout_above="@+id/edit_card_button"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"></ListView>
     <Button
         android:id="@+id/edit_card_button"
         android:layout_width="wrap_content"

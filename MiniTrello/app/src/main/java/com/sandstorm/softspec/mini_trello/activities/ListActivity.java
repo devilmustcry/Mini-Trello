@@ -3,14 +3,11 @@ package com.sandstorm.softspec.mini_trello.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.sandstorm.softspec.mini_trello.CustomClickListener;
@@ -18,8 +15,6 @@ import com.sandstorm.softspec.mini_trello.R;
 import com.sandstorm.softspec.mini_trello.models.Card;
 import com.sandstorm.softspec.mini_trello.models.CardList;
 import com.sandstorm.softspec.mini_trello.models.Storage;
-import com.sandstorm.softspec.mini_trello.view.CardAdapter;
-import com.sandstorm.softspec.mini_trello.view.CardListAdapter;
 import com.sandstorm.softspec.mini_trello.view.CardViewAdapter;
 
 import java.util.ArrayList;
@@ -28,9 +23,6 @@ import java.util.List;
 public class ListActivity extends AppCompatActivity {
 
     private List<Card> cards;
-//    private CardAdapter cardAdapter;
-//    private ListView cardListView;
-//    private CardList dummyList;
     private CardViewAdapter cardAdapter;
     private RecyclerView cardListView;
     private CardList cardList;

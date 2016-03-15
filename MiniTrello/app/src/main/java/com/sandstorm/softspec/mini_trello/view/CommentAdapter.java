@@ -8,17 +8,19 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.sandstorm.softspec.mini_trello.R;
+import com.sandstorm.softspec.mini_trello.models.Card;
 import com.sandstorm.softspec.mini_trello.models.CardList;
+import com.sandstorm.softspec.mini_trello.models.Comment;
 
 import java.util.List;
 
 /**
  * Created by Zen on 2/27/16.
  */
-public class CardListAdapter extends ArrayAdapter<CardList> {
+public class CommentAdapter extends ArrayAdapter<Comment> {
 
 
-    public CardListAdapter(Context context, int resource, List<CardList> objects){
+    public CommentAdapter(Context context, int resource, List<Comment> objects) {
         super(context, resource, objects);
     }
 
@@ -32,12 +34,14 @@ public class CardListAdapter extends ArrayAdapter<CardList> {
             v = vi.inflate(R.layout.cell, null);
         }
 
-        TextView title = (TextView) v.findViewById(R.id.title_text);
-        CardList lists = getItem(position);
-        title.setText(lists.getListTitle());
+        TextView comment_text = (TextView)v.findViewById(R.id.comment_text);
+        TextView time_text = (TextView)v.findViewById(R.id.time_text);
+
+        Comment comment = getItem(position);
+
+        comment_text.setText(comment.getCommentMessage());
+        time_text.setText(comment.getCreatedTime());
 
         return v;
     }
-
-
 }

@@ -7,16 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import com.sandstorm.softspec.mini_trello.CustomClickListener;
 import com.sandstorm.softspec.mini_trello.R;
 import com.sandstorm.softspec.mini_trello.models.CardList;
 import com.sandstorm.softspec.mini_trello.models.Storage;
-import com.sandstorm.softspec.mini_trello.view.CardListAdapter;
 import com.sandstorm.softspec.mini_trello.view.CardViewListAdapter;
 
 import java.util.ArrayList;
