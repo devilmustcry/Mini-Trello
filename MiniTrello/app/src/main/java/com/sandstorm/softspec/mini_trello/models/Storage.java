@@ -50,6 +50,10 @@ public class Storage {
         return null;
     }
 
+    public void deleteList(CardList cardList){
+        mainList.remove(cardList);
+    }
+
 
 
 

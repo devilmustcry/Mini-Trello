@@ -81,6 +81,17 @@ public class ListActivity extends AppCompatActivity {
             }
         });
 
+
+        FloatingActionButton delete_button = (FloatingActionButton) findViewById(R.id.delete_list_button);
+        delete_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Storage.getInstance().deleteList(Storage.getInstance().loadList().get((int) getIntent().getSerializableExtra("index")));
+                finish();
+            }
+        });
+
+
 //       cardListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //           @Override
 //           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
