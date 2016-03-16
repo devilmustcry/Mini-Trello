@@ -1,5 +1,7 @@
 package com.sandstorm.softspec.mini_trello.activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sandstorm.softspec.mini_trello.CustomClickListener;
 import com.sandstorm.softspec.mini_trello.R;
@@ -27,7 +30,30 @@ public class ListActivity extends AppCompatActivity {
     private RecyclerView cardListView;
     private CardList cardList;
     TextView listTitle;
+    private AlertDialog.Builder dialogBuilder;
 
+
+
+    private void deleteDialog() {
+        dialogBuilder.setTitle("Delete");
+        dialogBuilder.setMessage("Are you sure?");
+        dialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                delete();
+                finish();
+            }
+        });
+        dialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Your card are not deleted", Toast.LENGTH_SHORT).show();
+            }
+        });
+        AlertDialog deleteDialog = dialogBuilder.create();
+        deleteDialog.show();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +67,17 @@ public class ListActivity extends AppCompatActivity {
 
     }
 
+    private void delete() {
+        Storage.getInstance().loadList().remove((int) getIntent().getSerializableExtra("index"));
+        finish();
+
+    }
+
     private void initComponents() {
 
         cards = new ArrayList<Card>();
 
+        dialogBuilder = new AlertDialog.Builder(this);
         cardListView = (RecyclerView) findViewById(R.id.rv_list);
         cardListView.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -87,8 +120,7 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
               //  Storage.getInstance().deleteList(Storage.getInstance().loadList().get((int) getIntent().getSerializableExtra("index")));
-                Storage.getInstance().loadList().remove((int) getIntent().getSerializableExtra("index"));
-                finish();
+                deleteDialog();
             }
         });
 
