@@ -86,7 +86,8 @@ public class ListActivity extends AppCompatActivity {
         delete_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Storage.getInstance().deleteList(Storage.getInstance().loadList().get((int) getIntent().getSerializableExtra("index")));
+              //  Storage.getInstance().deleteList(Storage.getInstance().loadList().get((int) getIntent().getSerializableExtra("index")));
+                Storage.getInstance().loadList().remove((int) getIntent().getSerializableExtra("index"));
                 finish();
             }
         });

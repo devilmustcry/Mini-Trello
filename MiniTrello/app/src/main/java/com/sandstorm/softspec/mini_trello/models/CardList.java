@@ -55,14 +55,7 @@ public class CardList implements Serializable {
     }
 
     public void deleteCard(Card other){
-        int index = 0;
-        for(Card card : cards){
-            if(card.equals(other)){
-                break;
-            }
-            index++;
-        }
-        cards.remove(index);
+        cards.remove(other);
     }
 
     @Override

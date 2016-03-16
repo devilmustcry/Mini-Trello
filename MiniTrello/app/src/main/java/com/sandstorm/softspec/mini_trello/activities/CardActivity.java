@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.sandstorm.softspec.mini_trello.R;
 import com.sandstorm.softspec.mini_trello.models.Card;
-import com.sandstorm.softspec.mini_trello.models.CardList;
 import com.sandstorm.softspec.mini_trello.models.Comment;
 import com.sandstorm.softspec.mini_trello.models.Storage;
 import com.sandstorm.softspec.mini_trello.view.CommentAdapter;
@@ -35,10 +34,10 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
     private EditText commentInput;
     private CommentAdapter commentAdapter;
     private ListView commentListView;
+    private Button deleteButton;
 
 
     private void commentDialog() {
-        dialogBuilder = new AlertDialog.Builder(this);
         commentInput = new EditText(this);
         dialogBuilder.setTitle("Comment");
         dialogBuilder.setMessage("Your Comment");
@@ -55,7 +54,7 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                cancel();
+                cancelComment();
             }
         });
 
@@ -74,10 +73,19 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initComponents() {
 
+        dialogBuilder = new AlertDialog.Builder(this);
         title = (TextView) findViewById(R.id.card_title);
         description = (TextView) findViewById(R.id.card_description);
         comments = new ArrayList<Comment>();
         commentListView = (ListView) findViewById(R.id.comment_list_view);
+        deleteButton = (Button) findViewById(R.id.delete_card_button);
+
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDeleteButton();
+            }
+        });
 
 
         commentAdapter = new CommentAdapter(this, R.layout.cell, comments);
@@ -101,14 +109,43 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+    private void setDeleteButton() {
+        dialogBuilder.setTitle("Delete");
+        dialogBuilder.setMessage("Are you sure?");
+        dialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                delete();
+                finish();
+            }
+        });
+        dialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                cancelDelete();
+            }
+        });
+        AlertDialog deleteDialog = dialogBuilder.create();
+        deleteDialog.show();
+    }
+
+    private void delete() {
+        Storage.getInstance().loadList().get((int) getIntent()
+                .getSerializableExtra("cardListIndex")).loadList()
+                .remove((int) getIntent().getSerializableExtra("cardIndex"));
+    }
+
     @Override
     public void onClick(View v) {
 
     }
 
-    private void cancel() {
+    private void cancelComment() {
         Toast.makeText(getApplicationContext(), "Your Comment has been disposed", Toast.LENGTH_SHORT).show();
 
+    }
+    private void cancelDelete() {
+        Toast.makeText(getApplicationContext(), "Your card are not deleted", Toast.LENGTH_SHORT).show();
     }
 
     private void saveComment() {
