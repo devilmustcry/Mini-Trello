@@ -29,7 +29,8 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
 //    private CardList dummyList;
     private TextView title;
     private TextView description;
-    private AlertDialog.Builder dialogBuilder;
+    private AlertDialog.Builder commentDialogBuilder;
+    private AlertDialog.Builder deleteDialogBuilder;
     private Button commentButton;
     private EditText commentInput;
     private CommentAdapter commentAdapter;
@@ -39,10 +40,10 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
 
     private void commentDialog() {
         commentInput = new EditText(this);
-        dialogBuilder.setTitle("Comment");
-        dialogBuilder.setMessage("Your Comment");
-        dialogBuilder.setView(commentInput);
-        dialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        commentDialogBuilder.setTitle("Comment");
+        commentDialogBuilder.setMessage("Your Comment");
+        commentDialogBuilder.setView(commentInput);
+        commentDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 
 
             @Override
@@ -51,14 +52,14 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         });
-        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+        commentDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 cancelComment();
             }
         });
 
-        AlertDialog commentDialog = dialogBuilder.create();
+        AlertDialog commentDialog = commentDialogBuilder.create();
         commentDialog.show();
 
     }
@@ -73,7 +74,8 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initComponents() {
 
-        dialogBuilder = new AlertDialog.Builder(this);
+        commentDialogBuilder = new AlertDialog.Builder(this);
+        deleteDialogBuilder = new AlertDialog.Builder(this);
         title = (TextView) findViewById(R.id.card_title);
         description = (TextView) findViewById(R.id.card_description);
         comments = new ArrayList<Comment>();
@@ -110,22 +112,24 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setDeleteButton() {
-        dialogBuilder.setTitle("Delete");
-        dialogBuilder.setMessage("Are you sure?");
-        dialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+        deleteDialogBuilder.setTitle("Delete");
+        deleteDialogBuilder.setMessage("Are you sure?");
+        deleteDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 delete();
                 finish();
             }
         });
-        dialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        deleteDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 cancelDelete();
             }
         });
-        AlertDialog deleteDialog = dialogBuilder.create();
+        AlertDialog deleteDialog = deleteDialogBuilder.create();
+
         deleteDialog.show();
     }
 
