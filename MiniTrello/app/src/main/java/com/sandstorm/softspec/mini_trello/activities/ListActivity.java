@@ -122,6 +122,8 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    Storage.getInstance().loadList().get((int) getIntent().getSerializableExtra("index"))
+                            .setListTitle(editListTitle.getText().toString());
                     listTitle.setText(editListTitle.getText().toString());
                     editListTitle.setVisibility(View.INVISIBLE);
                     listTitle.setVisibility(View.VISIBLE);

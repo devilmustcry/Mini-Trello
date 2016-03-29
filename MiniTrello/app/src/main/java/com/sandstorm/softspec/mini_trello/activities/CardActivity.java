@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,6 +37,8 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
     private CommentAdapter commentAdapter;
     private ListView commentListView;
     private Button deleteButton;
+    private EditText titleEdit;
+    private EditText descriptionEdit;
 
 
     private void commentDialog() {
@@ -77,7 +80,24 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
         commentDialogBuilder = new AlertDialog.Builder(this);
         deleteDialogBuilder = new AlertDialog.Builder(this);
         title = (TextView) findViewById(R.id.card_title);
+
+        title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                title.setVisibility(View.INVISIBLE);
+                titleEdit.setVisibility(View.VISIBLE);
+            }
+        });
+
         description = (TextView) findViewById(R.id.card_description);
+        description.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                description.setVisibility(View.INVISIBLE);
+                descriptionEdit.setVisibility(View.VISIBLE);
+            }
+        });
+
         comments = new ArrayList<Comment>();
         commentListView = (ListView) findViewById(R.id.comment_list_view);
         deleteButton = (Button) findViewById(R.id.delete_card_button);
@@ -89,6 +109,47 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        titleEdit = (EditText) findViewById(R.id.card_title_edit);
+        titleEdit.setVisibility(View.INVISIBLE);
+
+        titleEdit.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode == KeyEvent.KEYCODE_ENTER)
+                {
+                    Storage.getInstance().loadList().get((int) getIntent()
+                            .getSerializableExtra("cardListIndex")).loadList()
+                                .get((int) getIntent().getSerializableExtra("cardIndex"))
+                                    .setCardTitle(titleEdit.getText().toString());
+                    title.setText(titleEdit.getText().toString());
+                    titleEdit.setVisibility(View.INVISIBLE);
+                    title.setVisibility(View.VISIBLE);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        descriptionEdit = (EditText) findViewById(R.id.card_description_edit);
+        descriptionEdit.setVisibility(View.INVISIBLE);
+
+        descriptionEdit.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode == KeyEvent.KEYCODE_ENTER)
+                {
+                    Storage.getInstance().loadList().get((int) getIntent()
+                            .getSerializableExtra("cardListIndex")).loadList()
+                                .get((int) getIntent().getSerializableExtra("cardIndex"))
+                                    .setCardDescription(descriptionEdit.getText().toString());
+                    description.setText(descriptionEdit.getText().toString());
+                    descriptionEdit.setVisibility(View.INVISIBLE);
+                    description.setVisibility(View.VISIBLE);
+                    return true;
+                }
+                return false;
+            }
+        });
 
         commentAdapter = new CommentAdapter(this, R.layout.cell, comments);
         commentListView.setAdapter(commentAdapter);
