@@ -10,7 +10,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import com.sandstorm.softspec.mini_trello.models.CardList;
 import com.sandstorm.softspec.mini_trello.models.Storage;
 import com.sandstorm.softspec.mini_trello.view.CardViewAdapter;
 
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +34,7 @@ public class ListActivity extends AppCompatActivity {
     private RecyclerView cardListView;
     private CardList cardList;
     TextView listTitle;
+    EditText editListTitle;
     private AlertDialog.Builder dialogBuilder;
 
 
@@ -104,6 +108,28 @@ public class ListActivity extends AppCompatActivity {
 
         listTitle = (TextView) findViewById(R.id.list_title);
 
+        listTitle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listTitle.setVisibility(View.INVISIBLE);
+                editListTitle.setVisibility(View.VISIBLE);
+            }
+        });
+
+        editListTitle = (EditText) findViewById(R.id.list_title_edit);
+        editListTitle.setVisibility(View.INVISIBLE);
+        editListTitle.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    listTitle.setText(editListTitle.getText().toString());
+                    editListTitle.setVisibility(View.INVISIBLE);
+                    listTitle.setVisibility(View.VISIBLE);
+                    return true;
+                }
+                return false;
+            }
+        });
 //        listTitle.setText(cardList.getListTitle());
 
         setTitle();

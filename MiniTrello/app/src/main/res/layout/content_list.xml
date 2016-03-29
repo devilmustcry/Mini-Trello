@@ -16,10 +16,27 @@
         <!--android:id="@+id/card_list"-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"></ListView>-->
+
+    <TextView
+        android:id="@+id/list_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Title"
+        android:textSize="10pt"
+        />
+    <EditText
+        android:id="@+id/list_title_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="10pt"/>
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:layout_below="@+id/list_title"
+        android:layout_marginTop="12pt"
         android:id="@+id/rv_list">
 
        </android.support.v7.widget.RecyclerView>
