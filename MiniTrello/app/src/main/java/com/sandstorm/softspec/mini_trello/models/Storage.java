@@ -10,11 +10,13 @@ public class Storage {
 
     private static Storage instance;
     private static List<CardList> mainList;
+    private static List<Tag> tagList;
 
 
 
     private Storage(){
         mainList = new ArrayList<CardList>();
+        tagList = new ArrayList<Tag>();
     }
 
     public static Storage getInstance(){
@@ -55,6 +57,24 @@ public class Storage {
         mainList.remove(cardList);
     }
 
+    public boolean tagExistence(Tag tag){
+        for(Tag t : tagList){
+            if(t.getTagName().toLowerCase().equals(tag.getTagName().toLowerCase())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void addTag(Tag tag){
+        if(!tagExistence(tag)){
+            tagList.add(tag);
+        }
+    }
+
+    public List<Tag> getTagList(){
+        return tagList;
+    }
 
 
 

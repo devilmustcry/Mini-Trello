@@ -12,6 +12,7 @@ public class CardList implements Serializable {
     private static long id = 1;
 
 
+
     public CardList(String title){
 
         System.out.println(id);
@@ -19,7 +20,26 @@ public class CardList implements Serializable {
         cards = new ArrayList<Card>();
         id++;
 
+        String dummyTag = "Mathematics,Physics,Astronomy,Chemical";
+        addTag(dummyTag);
+
     }
+
+    public void addTag(String tag){
+        String c = "";
+        for(int i = 0; i < tag.length(); i++){
+            if(tag.charAt(i) == ','){
+                Storage.getInstance().addTag(new Tag(c));
+                c = "";
+            }
+            else{
+                c += tag.charAt(i);
+            }
+        }
+    }
+
+
+
 
     public String getListTitle(){
         return this.list_title;
@@ -57,6 +77,12 @@ public class CardList implements Serializable {
     public void deleteCard(Card other){
         cards.remove(other);
     }
+
+    public void setListTitle(String newListTitle){
+        this.list_title = newListTitle;
+    }
+
+
 
     @Override
     public boolean equals(Object o) {
