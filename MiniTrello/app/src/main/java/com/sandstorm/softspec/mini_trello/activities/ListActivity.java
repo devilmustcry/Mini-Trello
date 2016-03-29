@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -99,17 +100,21 @@ public class ListActivity extends AppCompatActivity {
 
         cardList = Storage.getInstance().loadList().get((int) getIntent().getSerializableExtra("index"));
 
+
+
         listTitle = (TextView) findViewById(R.id.list_title);
 
-        listTitle.setText(cardList.getListTitle());
+//        listTitle.setText(cardList.getListTitle());
 
+        setTitle();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ListActivity.this, NewCardActivity.class);
-                intent.putExtra("cardList", cardList);
+                intent.putExtra("cardListIndex", getIntent().getSerializableExtra("index"));
+
                 startActivity(intent);
             }
         });
@@ -138,6 +143,16 @@ public class ListActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void setTitle() {
+
+        String title = cardList.getListTitle();
+
+        for(int i = 0 ; i < cardList.getTags().size(); i++) {
+            title+= " # " + cardList.getTags().get(i);
+        }
+        listTitle.setText(title);
     }
 
     @Override

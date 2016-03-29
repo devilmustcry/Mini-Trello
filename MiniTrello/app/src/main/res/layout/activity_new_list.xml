@@ -15,18 +15,26 @@
         android:layout_height="wrap_content"
         android:text="Title"
         android:textSize="10pt"/>
+
     <EditText
         android:id="@+id/new_list_title_edit"
         android:hint="Input Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/new_list_title_text"/>
+    <EditText
+        android:id="@+id/new_list_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_list_title_edit"
+        android:hint="Mathematics,Physics,Astronomy,Chemical"
+       />
     <Button
         android:id="@+id/save_list_button"
         android:text="Save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/new_list_title_edit"/>
+        android:layout_below="@+id/new_list_tag"/>
     <Button
         android:id="@+id/cancel_list_button"
         android:text="Cancel"

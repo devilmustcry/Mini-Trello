@@ -1,4 +1,6 @@
 package com.sandstorm.softspec.mini_trello.models;
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,42 +9,46 @@ import java.util.List;
  * Created by Zen on 2/27/16.
  */
 public class CardList implements Serializable {
-    private static List<Card> cards;
+    private List<Card> cards;
+    private List<Tag> tags;
     private String list_title;
     private static long id = 1;
 
 
 
-    public CardList(String title){
+    public CardList(String title,String tag){
 
-        System.out.println(id);
+//        System.out.println(id);
         this.list_title = title;
         cards = new ArrayList<Card>();
         id++;
 
-        String dummyTag = "Mathematics,Physics,Astronomy,Chemical";
-        addTag(dummyTag);
-
-    }
-
-    public void addTag(String tag){
-        String c = "";
-        for(int i = 0; i < tag.length(); i++){
-            if(tag.charAt(i) == ','){
-                Storage.getInstance().addTag(new Tag(c));
-                c = "";
-            }
-            else{
-                c += tag.charAt(i);
-            }
+        tags = new ArrayList<Tag>();
+        String [] c = tag.split(",");
+        for(int i = 0 ;i < c.length; i++ ) {
+            tags.add(new Tag(c[i]));
         }
+//        addTag(tag);
+
+
     }
+
+//    public void addTag(String tag){
+//        String [] c = tag.split(",");
+//        for(int i = 0; i < c.length; i++) {
+//            Storage.getInstance().addTag(new Tag(c[i]));
+//        }
+//    }
 
 
 
 
     public String getListTitle(){
         return this.list_title;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
     }
 
     public List<Card> getList() {

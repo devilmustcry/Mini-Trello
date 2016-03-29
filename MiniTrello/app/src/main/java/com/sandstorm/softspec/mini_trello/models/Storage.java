@@ -1,4 +1,6 @@
 package com.sandstorm.softspec.mini_trello.models;
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +11,14 @@ import java.util.List;
 public class Storage {
 
     private static Storage instance;
-    private static List<CardList> mainList;
-    private static List<Tag> tagList;
+    private List<CardList> mainList;
+//    private List<Tag> tagList;
 
 
 
     private Storage(){
         mainList = new ArrayList<CardList>();
-        tagList = new ArrayList<Tag>();
+//        tagList = new ArrayList<Tag>();
     }
 
     public static Storage getInstance(){
@@ -57,24 +59,27 @@ public class Storage {
         mainList.remove(cardList);
     }
 
-    public boolean tagExistence(Tag tag){
-        for(Tag t : tagList){
-            if(t.getTagName().toLowerCase().equals(tag.getTagName().toLowerCase())){
-                return true;
-            }
-        }
-        return false;
-    }
+//    public boolean tagExistence(Tag tag){
+////        Log.i("Tag","Check");
+//        if(tagList.size()==0)
+//            return false;
+//        for(Tag t : tagList){
+//            if(t.getTagName().equalsIgnoreCase(tag.getTagName())){
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
 
-    public void addTag(Tag tag){
-        if(!tagExistence(tag)){
-            tagList.add(tag);
-        }
-    }
-
-    public List<Tag> getTagList(){
-        return tagList;
-    }
+//    public void addTag(Tag tag){
+//        if(!tagExistence(tag)){
+//            tagList.add(tag);
+//        }
+//    }
+//
+//    public List<Tag> getTagList(){
+//        return tagList;
+//    }
 
 
 

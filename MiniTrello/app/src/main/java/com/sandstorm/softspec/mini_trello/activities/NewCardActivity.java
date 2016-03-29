@@ -18,7 +18,7 @@ public class NewCardActivity extends AppCompatActivity {
     private Button saveButton;
     private Button cancelButton;
 
-    private CardList dummyList;
+//    private CardList dummyList;
     private CardList parentList;
 
 
@@ -32,8 +32,8 @@ public class NewCardActivity extends AppCompatActivity {
 
     private void initComponents() {
 
-        dummyList = (CardList) getIntent().getSerializableExtra("cardList");
-        parentList = Storage.getInstance().findList(dummyList);
+//        dummyList = (CardList) getIntent().getSerializableExtra("cardList");
+        parentList = Storage.getInstance().loadList().get((int) getIntent().getSerializableExtra("cardListIndex"));
 
         title = (EditText) findViewById(R.id.new_card_title_edit);
 
