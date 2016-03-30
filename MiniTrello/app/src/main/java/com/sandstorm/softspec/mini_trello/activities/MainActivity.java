@@ -31,7 +31,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+<<<<<<< Updated upstream
         toolbar.setTitle("Mini Trello");
+=======
+        toolbar.setTitle("MiniTrello");
+>>>>>>> Stashed changes
         setSupportActionBar(toolbar);
 
         initComponents();
@@ -39,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initComponents() {
+
+
+
 
         cardLists = new ArrayList<CardList>();
 
