@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -115,12 +116,11 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
         titleEdit.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(keyCode == KeyEvent.KEYCODE_ENTER)
-                {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     Storage.getInstance().loadList().get((int) getIntent()
                             .getSerializableExtra("cardListIndex")).loadList()
-                                .get((int) getIntent().getSerializableExtra("cardIndex"))
-                                    .setCardTitle(titleEdit.getText().toString());
+                            .get((int) getIntent().getSerializableExtra("cardIndex"))
+                            .setCardTitle(titleEdit.getText().toString());
                     title.setText(titleEdit.getText().toString());
                     titleEdit.setVisibility(View.INVISIBLE);
                     title.setVisibility(View.VISIBLE);
@@ -136,12 +136,11 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
         descriptionEdit.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(keyCode == KeyEvent.KEYCODE_ENTER)
-                {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     Storage.getInstance().loadList().get((int) getIntent()
                             .getSerializableExtra("cardListIndex")).loadList()
-                                .get((int) getIntent().getSerializableExtra("cardIndex"))
-                                    .setCardDescription(descriptionEdit.getText().toString());
+                            .get((int) getIntent().getSerializableExtra("cardIndex"))
+                            .setCardDescription(descriptionEdit.getText().toString());
                     description.setText(descriptionEdit.getText().toString());
                     descriptionEdit.setVisibility(View.INVISIBLE);
                     description.setVisibility(View.VISIBLE);
@@ -153,6 +152,19 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
 
         commentAdapter = new CommentAdapter(this, R.layout.cell, comments);
         commentListView.setAdapter(commentAdapter);
+        commentListView.setLongClickable(true);
+        commentListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Storage.getInstance().loadList().get((int) getIntent()
+                        .getSerializableExtra("cardListIndex")).loadList()
+                        .get((int) getIntent().getSerializableExtra("cardIndex"))
+                        .deleteComment(position);
+                commentAdapter.notifyDataSetChanged();
+                comments.remove(position);
+                return false;
+            }
+        });
 
 //        dummyList = (CardList) getIntent().getSerializableExtra("cardList");
 

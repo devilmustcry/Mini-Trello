@@ -29,6 +29,10 @@ public class Card implements Serializable {
 
     }
 
+    public void deleteComment(int index){
+        commentList.remove(index);
+    }
+
     public String getTitle(){
         return this.title;
     }
