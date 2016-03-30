@@ -22,12 +22,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/new_list_title_text"/>
+    <TextView
+        android:id="@+id/new_list_tag_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/new_list_title_edit"
+        android:text="Tag"
+        android:textSize="10pt"/>
     <EditText
         android:id="@+id/new_list_tag"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/new_list_title_edit"
-        android:hint="Mathematics"
+        android:layout_below="@id/new_list_tag_text"
+        android:hint="Input a Tag"
        />
     <Button
         android:id="@+id/save_list_button"

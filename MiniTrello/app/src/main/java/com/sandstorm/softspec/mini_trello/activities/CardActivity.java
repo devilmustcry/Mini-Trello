@@ -114,6 +114,7 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card);
+        setTitle("MiniTrello");
         initComponents();
     }
 

@@ -39,6 +39,7 @@ public class ListActivity extends AppCompatActivity {
     EditText editListTitle;
     TextView listCardDate;
     private AlertDialog.Builder dialogBuilder;
+    private TextView tag;
 
 
 
@@ -117,6 +118,7 @@ public class ListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 listTitle.setVisibility(View.INVISIBLE);
                 editListTitle.setVisibility(View.VISIBLE);
+                editListTitle.setHint("Input new Name");
             }
         });
 
@@ -128,7 +130,7 @@ public class ListActivity extends AppCompatActivity {
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     Storage.getInstance().loadList().get((int) getIntent().getSerializableExtra("index"))
                             .setListTitle(editListTitle.getText().toString());
-                    listTitle.setText(editListTitle.getText().toString());
+                    setTitle(editListTitle.getText().toString());
                     editListTitle.setVisibility(View.INVISIBLE);
                     listTitle.setVisibility(View.VISIBLE);
                     return true;
@@ -136,9 +138,9 @@ public class ListActivity extends AppCompatActivity {
                 return false;
             }
         });
-//        listTitle.setText(cardList.getListTitle());
-
-        setTitle();
+        tag = (TextView) findViewById(R.id.tag);
+        tag.setText("# "+cardList.getTag().getTagName());
+        setTitle(cardList.getListTitle());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -179,12 +181,9 @@ public class ListActivity extends AppCompatActivity {
 
     }
 
-    private void setTitle() {
+    private void setTitle(String newTitle) {
 
-        String title = cardList.getListTitle();
-
-        title += " # " + cardList.getTag().getTagName();
-        listTitle.setText(title);
+        listTitle.setText(newTitle);
     }
 
     @Override

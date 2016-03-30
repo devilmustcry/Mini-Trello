@@ -19,7 +19,7 @@ public class Storage {
     private Storage(){
         mainList = new ArrayList<CardList>();
         tagList = new ArrayList<Tag>();
-        tagList.add(new Tag("None"));
+        tagList.add(new Tag("All"));
     }
 
     public static Storage getInstance(){

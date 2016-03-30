@@ -20,8 +20,14 @@ public class Card implements Serializable {
 
 
     public Card(String title , String description){
-        this.title = title;
-        this.description = description;
+        if(title.equals(""))
+            this.title = "Untitled";
+        else
+            this.title = title;
+        if(description.equals(""))
+            this.description = "No description";
+        else
+            this.description = description;
         date = new Date();
         currentCreatedTime = date.toLocaleString();
         commentList = new ArrayList<Comment>();

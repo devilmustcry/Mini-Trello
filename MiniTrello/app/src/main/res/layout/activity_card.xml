@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:hint="Input new Title"
         android:textSize="18pt"
         />
     <TextView
@@ -38,35 +39,30 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8pt"
         android:textSize="11pt"
-        android:layout_below="@id/card_title"/>
+        android:layout_below="@id/card_title"
+        android:hint="Input new Description"/>
     <ListView
         android:id="@+id/comment_list_view"
         android:layout_marginTop="10pt"
         android:layout_below="@+id/card_description"
-        android:layout_above="@+id/edit_card_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></ListView>
-    <Button
-        android:id="@+id/edit_card_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit"
-        android:layout_alignTop="@+id/delete_card_button"
-        android:layout_centerHorizontal="true" />
+
     <Button
         android:id="@+id/comment_card_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Comment"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/delete_card_button"
         android:layout_alignEnd="@+id/card_description" />
     <Button
         android:id="@+id/delete_card_button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Delete"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#FF0000"/>
 
 
 

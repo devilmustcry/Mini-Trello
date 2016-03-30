@@ -53,6 +53,8 @@ public class NewListActivity extends AppCompatActivity {
     }
 
     private void saveNewList() {
+        if(tag.getText().toString().equals(""))
+            tag.setText("All");
         Storage.getInstance().addList(new CardList(title.getText().toString(),tag.getText().toString()));
 
         Storage.getInstance().addTag(new Tag(tag.getText().toString()));

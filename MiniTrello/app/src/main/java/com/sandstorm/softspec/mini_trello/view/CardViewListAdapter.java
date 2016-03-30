@@ -45,6 +45,7 @@ public class CardViewListAdapter extends RecyclerView.Adapter<CardViewListAdapte
     @Override
     public void onBindViewHolder(CardListViewHolder holder, int position) {
         holder.listTitle.setText(cardLists.get(position).getListTitle());
+        holder.listTag.setText("#" + cardLists.get(position).getTag().getTagName());
     }
 
     @Override
@@ -55,10 +56,12 @@ public class CardViewListAdapter extends RecyclerView.Adapter<CardViewListAdapte
     public static class CardListViewHolder extends RecyclerView.ViewHolder {
 
         TextView listTitle;
+        TextView listTag;
 
         public CardListViewHolder(View itemView) {
             super(itemView);
             listTitle = (TextView)itemView.findViewById(R.id.main_list_title);
+            listTag = (TextView)itemView.findViewById(R.id.main_list_tag);
         }
     }
 }

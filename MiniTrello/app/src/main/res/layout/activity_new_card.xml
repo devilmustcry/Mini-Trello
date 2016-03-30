@@ -21,12 +21,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/new_card_title_text"/>
+    <TextView
+        android:id="@+id/new_card_description_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/new_card_title_edit"
+        android:textSize="10pt"
+        android:text="Description"/>
     <EditText
         android:id="@+id/new_card_description"
         android:hint="Input Description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/new_card_title_edit"/>
+        android:layout_below="@+id/new_card_description_text"/>
     <Button
         android:id="@+id/save_card_button"
         android:text="Save"
