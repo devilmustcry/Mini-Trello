@@ -26,6 +26,7 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
 
     private List<Comment> comments;
     private Card card;
+//    private int deletePosition;
 //    private Card dummyCard;
 //    private CardList cardList;
 //    private CardList dummyList;
@@ -33,6 +34,7 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
     private TextView description;
     private AlertDialog.Builder commentDialogBuilder;
     private AlertDialog.Builder deleteDialogBuilder;
+    private AlertDialog.Builder deleteCommentBuilder;
     private Button commentButton;
     private EditText commentInput;
     private CommentAdapter commentAdapter;
@@ -68,6 +70,45 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void setDeleteCommentDialog(final int position) {
+        deleteCommentBuilder.setTitle("Delete Comment");
+        deleteCommentBuilder.setMessage("Are you sure you want to delete this comment?");
+        deleteCommentBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                deleteComment(position);
+
+            }
+        });
+
+        deleteCommentBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                cancelDeleteComment();
+
+            }
+
+        });
+        AlertDialog deleteCommentDialog = deleteCommentBuilder.create();
+        deleteCommentDialog.show();
+    }
+
+    private void cancelDeleteComment() {
+        Toast.makeText(getApplicationContext(), "Your Comment has been disposed", Toast.LENGTH_SHORT).show();
+    }
+
+    private void deleteComment(int position) {
+
+        Storage.getInstance().loadList().get((int) getIntent()
+                .getSerializableExtra("cardListIndex")).loadList()
+                .get((int) getIntent().getSerializableExtra("cardIndex"))
+                .deleteComment(position);
+        commentAdapter.notifyDataSetChanged();
+        comments.remove(position);
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +121,7 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
 
         commentDialogBuilder = new AlertDialog.Builder(this);
         deleteDialogBuilder = new AlertDialog.Builder(this);
+        deleteCommentBuilder = new AlertDialog.Builder(this);
         title = (TextView) findViewById(R.id.card_title);
 
         title.setOnClickListener(new View.OnClickListener() {
@@ -156,12 +198,7 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
         commentListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Storage.getInstance().loadList().get((int) getIntent()
-                        .getSerializableExtra("cardListIndex")).loadList()
-                        .get((int) getIntent().getSerializableExtra("cardIndex"))
-                        .deleteComment(position);
-                commentAdapter.notifyDataSetChanged();
-                comments.remove(position);
+                setDeleteCommentDialog(position);
                 return false;
             }
         });
@@ -182,6 +219,7 @@ public class CardActivity extends AppCompatActivity implements View.OnClickListe
                 commentDialog();
             }
         });
+        restart();
     }
 
     private void setDeleteButton() {
