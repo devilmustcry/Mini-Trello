@@ -19,6 +19,7 @@ public class Storage {
     private Storage(){
         mainList = new ArrayList<CardList>();
         tagList = new ArrayList<Tag>();
+        tagList.add(new Tag("None"));
     }
 
     public static Storage getInstance(){
@@ -32,7 +33,6 @@ public class Storage {
 
     public void addList(CardList cardList){
         mainList.add(cardList);
-        tagList.add(cardList.getTag());
     }
 
     public List<CardList> loadList() {
@@ -44,14 +44,15 @@ public class Storage {
         mainList.clear();
     }
 
-    public CardList findList(CardList other) {
+    public int findListIndex(CardList other) {
 
-        for(CardList list : mainList) {
-            if(list.equals(other)) {
-                return list;
+        for(int i = 0;i < mainList.size(); i++) {
+            if(mainList.get(i).equals(other)) {
+                Log.i("Return Index",i+"");
+                return i;
             }
         }
-        return null;
+        return -1;
     }
 
     public void deleteList(CardList cardList){
@@ -80,6 +81,8 @@ public class Storage {
     public List<Tag> getTagList(){
         return tagList;
     }
+
+
 
     public List<CardList> getListFromTag(Tag tag){
         List<CardList> tempList = new ArrayList<CardList>();

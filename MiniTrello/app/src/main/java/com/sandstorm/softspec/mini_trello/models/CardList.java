@@ -12,7 +12,7 @@ public class CardList implements Serializable {
     private List<Card> cards;
     private Tag tags;
     private String list_title;
-    private static long id = 1;
+//    private static long id = 1;
 
 
 
@@ -21,10 +21,11 @@ public class CardList implements Serializable {
 //        System.out.println(id);
         this.list_title = title;
         cards = new ArrayList<Card>();
-        id++;
+//        id++;
 
-        tags = new Tag(tag);
+
         String [] c = tag.split(",");
+        tags = new Tag(tag);
 //        addTag(tag);
 
 
@@ -60,9 +61,9 @@ public class CardList implements Serializable {
         return cards;
     }
 
-    public static long getId() {
-        return id;
-    }
+//    public static long getId() {
+//        return id;
+//    }
 
     public void clear() {
         cards.clear();
@@ -94,7 +95,7 @@ public class CardList implements Serializable {
 
         CardList cardList = (CardList) o;
 
-        return this.id == cardList.getId();
+        return this.hashCode() == cardList.hashCode();
 
     }
 

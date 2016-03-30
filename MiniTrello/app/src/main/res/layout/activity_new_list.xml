@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/new_list_title_edit"
-        android:hint="Mathematics,Physics,Astronomy,Chemical"
+        android:hint="Mathematics"
        />
     <Button
         android:id="@+id/save_list_button"
