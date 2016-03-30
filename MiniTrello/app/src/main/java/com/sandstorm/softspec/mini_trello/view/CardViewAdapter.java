@@ -46,6 +46,7 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
     @Override
     public void onBindViewHolder(CardViewHolder holder, int position) {
         holder.title.setText(cards.get(position).getTitle());
+        holder.date.setText(cards.get(position).getCreatedTime());
     }
 
     @Override
@@ -61,6 +62,7 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
         public CardViewHolder(View itemView) {
             super(itemView);
             title = (TextView) itemView.findViewById(R.id.list_card_title);
+            date = (TextView) itemView.findViewById(R.id.list_card_date);
 
         }
 

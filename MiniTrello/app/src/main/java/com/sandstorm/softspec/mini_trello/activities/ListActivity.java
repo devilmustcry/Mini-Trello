@@ -23,6 +23,8 @@ import com.sandstorm.softspec.mini_trello.models.CardList;
 import com.sandstorm.softspec.mini_trello.models.Storage;
 import com.sandstorm.softspec.mini_trello.view.CardViewAdapter;
 
+import org.w3c.dom.Text;
+
 import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +37,7 @@ public class ListActivity extends AppCompatActivity {
     private CardList cardList;
     TextView listTitle;
     EditText editListTitle;
+    TextView listCardDate;
     private AlertDialog.Builder dialogBuilder;
 
 
@@ -157,6 +160,8 @@ public class ListActivity extends AppCompatActivity {
                 deleteDialog();
             }
         });
+
+
 
 
 //       cardListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
