@@ -42,9 +42,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void initComponents() {
 
-
-
-
         cardLists = new ArrayList<CardList>();
 
         cardListAdapter = new CardViewListAdapter(cardLists,new CustomClickListener(){

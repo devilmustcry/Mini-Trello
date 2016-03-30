@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class CardList implements Serializable {
     private List<Card> cards;
-    private List<Tag> tags;
+    private Tag tags;
     private String list_title;
     private static long id = 1;
 
@@ -23,11 +23,8 @@ public class CardList implements Serializable {
         cards = new ArrayList<Card>();
         id++;
 
-        tags = new ArrayList<Tag>();
+        tags = new Tag(tag);
         String [] c = tag.split(",");
-        for(int i = 0 ;i < c.length; i++ ) {
-            tags.add(new Tag(c[i]));
-        }
 //        addTag(tag);
 
 
@@ -47,7 +44,7 @@ public class CardList implements Serializable {
         return this.list_title;
     }
 
-    public List<Tag> getTags() {
+    public Tag getTag() {
         return tags;
     }
 

@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="51a1793b-368f-4fee-aa8a-0720efa79695" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/models/Card.java" afterPath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/models/Card.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/activities/CardActivity.java" afterPath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/activities/CardActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/models/CardList.java" afterPath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/models/CardList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/activities/ListActivity.java" afterPath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/activities/ListActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/activities/MainActivity.java" afterPath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/activities/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/activities/NewListActivity.java" afterPath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/activities/NewListActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/models/Storage.java" afterPath="$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/models/Storage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MiniTrello/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/MiniTrello/app/src/main/res/layout/activity_main.xml" />
     </list>
     <ignored path="Mini-Trello.iws" />
@@ -30,7 +32,7 @@
         <entry file="file://$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0726979">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -505,7 +507,7 @@
     <entry file="file://$PROJECT_DIR$/MiniTrello/app/src/main/java/com/sandstorm/softspec/mini_trello/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0726979">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>

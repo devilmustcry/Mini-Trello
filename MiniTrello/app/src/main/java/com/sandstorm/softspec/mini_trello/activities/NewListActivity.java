@@ -53,6 +53,7 @@ public class NewListActivity extends AppCompatActivity {
 
     private void saveNewList() {
         Storage.getInstance().addList(new CardList(title.getText().toString(),tag.getText().toString()));
+
 //        System.out.println(Storage.getInstance().getTagList().toString());
     }
 

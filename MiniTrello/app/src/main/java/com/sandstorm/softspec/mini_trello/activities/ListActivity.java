@@ -183,9 +183,7 @@ public class ListActivity extends AppCompatActivity {
 
         String title = cardList.getListTitle();
 
-        for(int i = 0 ; i < cardList.getTags().size(); i++) {
-            title+= " # " + cardList.getTags().get(i);
-        }
+        title += " # " + cardList.getTag().getTagName();
         listTitle.setText(title);
     }
 

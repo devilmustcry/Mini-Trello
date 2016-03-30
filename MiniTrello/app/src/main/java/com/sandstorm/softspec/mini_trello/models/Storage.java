@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Zen on 2/27/16.
+ * Created by Zenza007 on 2/27/16.
  */
 public class Storage {
 
     private static Storage instance;
     private List<CardList> mainList;
-//    private List<Tag> tagList;
+    private List<Tag> tagList;
 
 
 
     private Storage(){
         mainList = new ArrayList<CardList>();
-//        tagList = new ArrayList<Tag>();
+        tagList = new ArrayList<Tag>();
     }
 
     public static Storage getInstance(){
@@ -32,7 +32,7 @@ public class Storage {
 
     public void addList(CardList cardList){
         mainList.add(cardList);
-
+        tagList.add(cardList.getTag());
     }
 
     public List<CardList> loadList() {
@@ -59,27 +59,37 @@ public class Storage {
         mainList.remove(cardList);
     }
 
-//    public boolean tagExistence(Tag tag){
-////        Log.i("Tag","Check");
-//        if(tagList.size()==0)
-//            return false;
-//        for(Tag t : tagList){
-//            if(t.getTagName().equalsIgnoreCase(tag.getTagName())){
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
+    public boolean tagExistence(Tag tag){
+//        Log.i("Tag","Check");
+        if(tagList.size()==0)
+            return false;
+        for(Tag t : tagList){
+            if(t.getTagName().equalsIgnoreCase(tag.getTagName())){
+                return true;
+            }
+        }
+        return false;
+    }
 
-//    public void addTag(Tag tag){
-//        if(!tagExistence(tag)){
-//            tagList.add(tag);
-//        }
-//    }
-//
-//    public List<Tag> getTagList(){
-//        return tagList;
-//    }
+    public void addTag(Tag tag){
+        if(!tagExistence(tag)){
+            tagList.add(tag);
+        }
+    }
+
+    public List<Tag> getTagList(){
+        return tagList;
+    }
+
+    public List<CardList> getListFromTag(Tag tag){
+        List<CardList> tempList = new ArrayList<CardList>();
+        for(CardList l : mainList){
+            if(l.getTag().equals(tag)){
+                tempList.add(l);
+            }
+        }
+        return tempList;
+    }
 
 
 
