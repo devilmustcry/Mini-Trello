@@ -14,9 +14,9 @@ Member
 
 ### Iteration 1: use case 1   
 Use case: Create a single list  
-Version: 0.1  
+Version: 0.1.1  
 Primary Actor: User  
-Main Success Scenario  
+Main Success Scenarioes  
 * User enter application
 * User arrives at the main page
 * User request to create a new list
