@@ -8,13 +8,13 @@ Member
   - Patchara Pattiyathanee 5710546348
 
 # Iteration 1
-* User can create an empty card list with a name  
-* Use create a card inside each list with title and description
-* View an individual card in detail
+* User can create an empty card list with a name.
+* Use create a card inside each list with title and description.
+* View an individual card in detail.
 
 ### Iteration 1: use case 1   
 Use case: Create a single list  
-Version: 0.1.1  
+Version: 0.1.2  
 Primary Actor: User  
 Main Success Scenarioes  
 * User enter application
