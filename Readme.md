@@ -1,6 +1,6 @@
 # MiniTrello
 
-This project is for subject Software Specification & Design (01219243).
+This project is for subject Software Specification & Design (01219243)
 
 Member
   - Kasidit Phoncharoen 5710546151
