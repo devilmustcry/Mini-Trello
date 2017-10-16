@@ -28,7 +28,7 @@ Main Success Scenarioes
 
 ### Iteration 1: use case 2  
 Use case: Create a card  
-Version: 0.1  
+Version: 0.1.1  
 Primary Actor: User  
 Main Success Scenario  
 * User enter the application
