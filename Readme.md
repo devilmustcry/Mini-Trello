@@ -16,7 +16,7 @@ Member
 Use case: Create a single list  
 Version: 0.1  
 Primary Actor: User  
-Main Success Scenario  
+Main Success Scenarioes  
 * User enter application
 * User arrives at the main page
 * User request to create a new list
